@@ -1,3 +1,6 @@
+Branches
+  master
+
 Bootstraping of angular app
  starts at main.ts file
  main property of angular.json points to main.ts
@@ -201,3 +204,5 @@ export class EventThumbnailComponent{
 Style benifit of adding at compenent level in angular
 
 Angular provide Style Encapsulation at compenent level
+
+
