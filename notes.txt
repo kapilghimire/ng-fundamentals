@@ -99,7 +99,7 @@ Steps to use component
 3) register compenent in NgModule inside declarations property
 4) using compenent with its selector as <selector [property]="value"></selector>
 
-Sending input proerty to child compenent
+Sending input property to child compenent from parent
 
 @Component({
   selector: 'events-list',
@@ -110,3 +110,45 @@ Sending input proerty to child compenent
    <event-thumbnail [event]="event1"></event-thumbnail>
  </div>`
 })
+
+
+emitting event for child compenent to parent
+
+@Component({
+  selector:'event-thumbnail',
+  template:`
+  <div>
+     ............. additional html ...........
+    <button class="btn btn-primary" (click)="handleClickMe()">Click me!</button>
+  </div>
+  `
+})
+export class EventThumbnailComponent{
+
+  @Input() event:any
+  @Output() eventClick = new EventEmitter()
+
+  handleClickMe(){
+    console.log('Clicked! ')
+    this.eventClick.emit('foo') ...// emitting foo
+  }
+
+}
+
+define event emitter in child compenent
+ @Output() eventClick = new EventEmitter()
+
+
+ use event emitter to emit event
+
+ export class EventThumbnailComponent{
+
+  @Input() event:any
+  @Output() eventClick = new EventEmitter()
+
+  handleClickMe(){
+    console.log('Clicked! ')
+    this.eventClick.emit('foo') ...// emitting foo
+  }
+
+}
