@@ -81,3 +81,32 @@ one way binding
    selector:'events-list',
    templateUrl:'./events-list.component.html'
 })
+
+Input to child compenent in angular
+import { Component, Input } from "@angular/core";
+export class EventThumbnailComponent{
+
+  @Input() event:any
+
+}
+
+import for input decorator
+import { Component, Input } from "@angular/core";
+
+Steps to use component
+1) Create component in typscript file
+2) define compenent selector and templateUrl/template
+3) register compenent in NgModule inside declarations property
+4) using compenent with its selector as <selector [property]="value"></selector>
+
+Sending input proerty to child compenent
+
+@Component({
+  selector: 'events-list',
+  template: `
+  <div>
+   <h1>Upcomming Angular Events</h1>
+   <hr>
+   <event-thumbnail [event]="event1"></event-thumbnail>
+ </div>`
+})
