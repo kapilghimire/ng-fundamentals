@@ -206,3 +206,14 @@ Style benifit of adding at compenent level in angular
 Angular provide Style Encapsulation at compenent level
 
 
+interpolation
+{{user.name}}
+
+proerty binding
+<img [src]="user.imageUrl" />
+
+event binding
+<button (click)="doSomething()">   </button>
+
+
+
