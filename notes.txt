@@ -15,3 +15,35 @@ Bootstraping of angular app
   export class EventsAppComponent {
     title = 'ng-fundamentals';
   }
+
+where does angular serve static files from
+  files under  src/assest  can be served as static files
+  even if file is in deep folder herarchy inside src/assest it will be serverd
+  eg src/assest/images/abc.png will also be served
+
+where to keep static images
+  src/assests or any deep level of src/assest
+
+angular.json proerty which bundles static assests (relative to index.html) and css
+"assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+"styles": [
+              "src/styles.css"
+            ],
+
+angular.json to add external js or css library
+  "styles": [
+              "node_modules/ngf-bootstrap/dist/bootstrap.min.css",
+              "src/styles.css"
+            ],
+ "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.js"
+            ]
+
+
+
+restart angular compiler when
+change in webpack or angular.json
