@@ -74,3 +74,10 @@ Registering new component to a module at NgModule
 string interpolation in angular
 one way binding
  <h2>{{event.name}}</h2>
+
+
+ Using external html file for component html
+ @Component({
+   selector:'events-list',
+   templateUrl:'./events-list.component.html'
+})
