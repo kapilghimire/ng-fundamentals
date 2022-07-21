@@ -1,0 +1,17 @@
+Bootstraping of angular app
+ starts at main.ts file
+ main property of angular.json points to main.ts
+ main proerty of angular.json is used by webpack
+ main.ts bootstarp AppModule
+ AppModule bootstarp appcomponent
+
+ Declearing component with inline template
+  import { Component } from '@angular/core';
+
+  @Component({
+    selector: 'events-app',
+    template: '<h2>Hello World</h2>',
+  })
+  export class EventsAppComponent {
+    title = 'ng-fundamentals';
+  }
