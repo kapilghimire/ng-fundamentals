@@ -152,3 +152,30 @@ define event emitter in child compenent
   }
 
 }
+
+
+template reference variable benifit to parent from child
+1) template reference varialble define at parent level
+2) Gives access to public method and property of child compenent to parent
+3) you can bind public property of child using template reference on parent template
+
+
+template reference property and method of  child on parent example
+
+<div>
+   <h1>Upcomming Angular Events</h1>
+   <hr>
+   <event-thumbnail #thumbnail (eventClick)="handleEventClicked($event)"  [event]="event1"></event-thumbnail>
+   <h2>{{thumbnail.someProperty}}</h2>
+   <button class="btn btn-primary" (click)="thumbnail.logFoo()"> me some foo</button>
+ </div>`
+
+ #thumbnail is template variable
+ someProperty exist in EventThumbnailComponent
+ logFoo() also exist in EventThumbnailComponent
+
+
+ Three ways to handle inter-compenent communication
+ 1) input properties
+ 2) Output properties
+ 3) template reference variable
