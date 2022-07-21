@@ -1,5 +1,6 @@
 Branches
   master
+  directives
 
 Bootstraping of angular app
  starts at main.ts file
@@ -214,6 +215,15 @@ proerty binding
 
 event binding
 <button (click)="doSomething()">   </button>
+
+
+Structural directives
+They change shape of dom  add or remove not hide dom elements
+eg: *ngFor *ngIf
+
+*ngFor Structural directive
+<event-thumbnail  *ngFor = "let event of events"[event]="event"></event-thumbnail>
+
 
 
 
