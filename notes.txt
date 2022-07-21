@@ -196,3 +196,8 @@ template reference property and method of  child on parent example
 export class EventThumbnailComponent{
 
 }
+
+
+Style benifit of adding at compenent level in angular
+
+Angular provide Style Encapsulation at compenent level
