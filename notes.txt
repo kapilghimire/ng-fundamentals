@@ -179,3 +179,20 @@ template reference property and method of  child on parent example
  1) input properties
  2) Output properties
  3) template reference variable
+
+
+ applying inline styles to component
+ @Component({
+  selector:'event-thumbnail',
+  template:`
+  ... html for compenent....
+  `,
+  styles: [` // inline styles
+    .pad-left{ margin-left: 10px}
+    .well div{ color : red}
+  `]
+
+})
+export class EventThumbnailComponent{
+
+}
