@@ -283,3 +283,17 @@ getStartTimeClass(){
     return ['green', 'bold']
     return []
   }
+
+  applying single inline style in angular with ternary operator
+  <div [style.color]="event?.time === '8:00 am' ? '#003300' : '#bbb' "  [ngSwitch]="event?.time">Time: {{event.time}}
+
+  multiple inline css
+  <div [ngStyle]="{'color': event?.time === '8:00 am' ? '#003300' : '#bbb' , 'font-weight': event?.time === '8:00 am' ? 'bold' : 'normal'  } "  [ngSwitch]="event?.time">Time: {{event.time}}
+
+  multiple inline css from component to template
+ <div [ngStyle]="getStartTimeStyle()"  [ngSwitch]="event?.time">Time: {{event.time}}
+   getStartTimeStyle():any{
+    if(this.event && this.event.time === '8:00 am')
+    return {color:'#003300', 'font-weight': 'bold'}
+    return {}
+  }
