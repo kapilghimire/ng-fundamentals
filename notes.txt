@@ -231,3 +231,20 @@ safe navigation operator
 
 
 
+Not rendering element if not required
+ <div  *ngIf="event?.onlineUrl">   // gives performace benifit
+      Online URL: {{event?.onlineUrl}}
+    </div>
+
+Hiding element optionally
+ <div  [hidden] = "!event?.onlineUrl" >   // don't give performace benifit
+      Online URL: {{event?.onlineUrl}}
+    </div>
+
+ngSwitch
+ <div [ngSwitch]="event?.time">Time: {{event.time}}
+      <span *ngSwitchCase="'8:00 am'">(Early Start)</span>
+      <span *ngSwitchCase="'10:00 am'">(Late Start)</span>
+      <span *ngSwitchDefault>(Normal Start)</span>
+    </div>
+
