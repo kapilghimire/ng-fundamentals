@@ -225,5 +225,9 @@ eg: *ngFor *ngIf
 <event-thumbnail  *ngFor = "let event of events"[event]="event"></event-thumbnail>
 
 
+safe navigation operator
+{{event?.name}} // do not evaluate name if event in null
+{{event?.location?.address}} // do not evaluate location if event is null and don't evaluate address if location is null
+
 
 
