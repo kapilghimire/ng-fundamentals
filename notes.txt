@@ -248,3 +248,8 @@ ngSwitch
       <span *ngSwitchDefault>(Normal Start)</span>
     </div>
 
+
+
+single css class binding for dynamic css
+ <div [class.green]="event?.time === '8:00 am'" [ngSwitch]="event?.time">Time: {{event.time}}
+
