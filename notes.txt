@@ -1,6 +1,7 @@
 Branches
   master
   directives
+  services
 
 Bootstraping of angular app
  starts at main.ts file
@@ -297,3 +298,88 @@ getStartTimeClass(){
     return {color:'#003300', 'font-weight': 'bold'}
     return {}
   }
+
+Create a Injectable service
+import { Injectable } from "@angular/core";
+
+@Injectable()
+export class EventService{
+  getEvents(){
+    return EVENTS;
+  }
+}
+
+@Injectable() decorator is required
+
+if a service has its own depedences in constructor
+eg: if a need http service for angular framwork which can be injected to service via constructor injection
+
+
+Registing Service in NgModule
+@NgModule({
+  declarations: [
+   --- component registeration ---
+  ],
+  imports: [
+   ---- angular imports ---
+  ],
+  providers: [EventService],  // --registering service
+  bootstrap: [EventsAppComponent]
+})
+export class AppModule { }
+
+
+injecting EventService to EventListComponent
+export class EventListComponent {
+
+  constructor(private eventService : EventService){
+
+  }
+}
+
+
+lifecycle hook of component to call ajax call
+ngOnInit() method
+
+make compenent implemente ngOnInit method()
+
+export class EventListComponent implements OnInit{
+  // OnInit interface require ngOnInit() method
+
+}
+
+
+configuring external library css and javascript in angular--toster
+
+in angular.json
+"styles": [
+              "node_modules/toastr/build/toastr.min.css", -- css
+              "node_modules/ngf-bootstrap/dist/bootstrap.min.css",
+              "src/styles.css"
+            ],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/toastr/build/toastr.min.js", -- javascript
+              "node_modules/bootstrap/dist/js/bootstrap.js"
+            ]
+
+encapsulating toastr service
+import { Injectable } from "@angular/core";
+
+declare let toastr:any --- /// global scope available by the libaray
+@Injectable()
+export class ToastrService{
+ success(message:string,title?:string){
+   toastr.success(message,title)
+ }
+ info(message:string,title?:string){
+  toastr.info(message,title)
+}
+warning(message:string,title?:string){
+  toastr.warning(message,title)
+}
+error(message:string,title?:string){
+  toastr.error(message,title)
+}
+
+}
