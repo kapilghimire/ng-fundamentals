@@ -410,3 +410,32 @@ How does from which path of server to load routes
   bootstrap: [EventsAppComponent]
 })
 export class AppModule { }
+
+
+Parameterized routes
+  { path: 'events/:id', component: EventDetailsComponent },
+
+
+root route
+
+ { path: '', redirectTo:'/events', pathMatch:'full'}
+
+
+ Service to get route parameter for route
+ ActivatedRoute
+
+ Getting parameter from route
+
+ export class EventDetailsComponent implements OnInit{
+  event:any;
+  constructor(private eventService: EventService,private route :ActivatedRoute){
+
+  }
+  ngOnInit(): void {
+    this.event= this.eventService.getEvent(+this.route.snapshot.params['id'])
+  }
+
+
+}
+
+
