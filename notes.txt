@@ -383,3 +383,30 @@ error(message:string,title?:string){
 }
 
 }
+
+
+Defining appRoutes in routes.ts at root of application
+export const appRoutes:Routes = [
+  { path: 'events', component: EventListComponent },
+  { path: 'events/:id', component: EventDetailsComponent },
+  { path: '', redirectTo:'/events', pathMatch:'full'}
+]
+
+How does from which path of server to load routes
+ <base href="/">
+
+
+ Resgistring router module in app Module
+
+ @NgModule({
+  declarations: [
+   -- components --
+  ],
+  imports: [
+    BrowserModule,
+    RouterModule.forRoot(appRoutes) // registring routes
+  ],
+  providers: [EventService,ToastrService],
+  bootstrap: [EventsAppComponent]
+})
+export class AppModule { }
