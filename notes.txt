@@ -5,6 +5,7 @@ Branches
   Routing
   routing-can-activate
   routing-can-deactivate
+  routing-route-resolver
 
 Bootstraping of angular app
  starts at main.ts file
@@ -521,3 +522,40 @@ export class EventRouteActivator implements CanActivate{
 
   return true;
 }
+
+
+*********************Route Resolver **************************
+Registering a route Resolver in application routes
+export const appRoutes:Routes = [
+  { path: 'events', component: EventListComponent, resolve: {events: EventListResolver} },
+]
+
+Define EventListRoute Resolver to get data
+@Injectable()
+export class EventListResolver implements Resolve<any>{
+  constructor(private eventService:EventService){}
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    // we want to return observable show that angular can watch observable
+      return this.eventService.getEvents().pipe(map(events =>events))
+  }
+}
+
+How do get data object out of Route which is intialized by route Resolver
+using ActivatedRoute serivice
+
+Getting route resover data in componente
+export class EventListComponent implements OnInit {
+  events: any;
+
+  constructor(private eventService : EventService,private toastrServie:ToastrService,private route:ActivatedRoute){
+
+  }
+  ngOnInit(){
+     // getting data out of route resolver
+     this.events = this.route.snapshot.data['events'];
+  }
+
+Registering Route Resolver in NgModule
+providers: [
+  EventListResolver,
+  ],

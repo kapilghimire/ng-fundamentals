@@ -6,6 +6,7 @@ import { Error404Component } from './errors/404.component';
 
 import { EventsAppComponent } from './events-app.component';
 import { CreateEventComponent } from './events/create-event.component';
+import { EventListResolver } from './events/event-list-resolver.service';
 import { EventThumbnailComponent } from './events/event-thumbnail.component';
 import { EventDetailsComponent } from './events/events-details/event-details.component';
 import { EventRouteActivator } from './events/events-details/event-route-activator.service';
@@ -32,7 +33,8 @@ import { appRoutes } from './routes';
   {
     provide:'canDeactivateCreateEvent',
     useValue: checkDirtyState
-  }
+  },
+  EventListResolver,
 
   ],
   bootstrap: [EventsAppComponent]
