@@ -6,6 +6,7 @@ Branches
   routing-can-activate
   routing-can-deactivate
   routing-route-resolver
+  route-styling
 
 Bootstraping of angular app
  starts at main.ts file
@@ -559,3 +560,20 @@ Registering Route Resolver in NgModule
 providers: [
   EventListResolver,
   ],
+
+
+********************Style navigation menu ***************
+Directive and attribute to on routes
+[routerLink]
+routerLinkActive
+[routerLinkActiveOptions]
+
+
+styling routes
+<li>
+          <a [routerLink]="['/events']"
+           routerLinkActive="active"
+           [routerLinkActiveOptions]="{exact:true}"
+          >All Events</a>
+        </li>
+        <li><a [routerLink]="['/events/new']" routerLinkActive="active">Create Event</a></li>
