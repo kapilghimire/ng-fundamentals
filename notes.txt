@@ -2,7 +2,8 @@ Branches
   master
   directives
   services
-  Routing 
+  Routing
+  routing-can-activate
 
 Bootstraping of angular app
  starts at main.ts file
@@ -451,7 +452,7 @@ using router link
 adding router link for anchor element
  <a [routerLink]="['/events']" >All Events</a>
 
-Navigation using code needs injection of service
+Navigation to route  using code needs injection of service
 Router
 
 Navigation using code
@@ -464,4 +465,34 @@ export class CreateEventComponent{
     this.router.navigate(['/events'])
   }
 }
+
+Defining Route with typscript type for angular route
+
+export const appRoutes:Routes = [
+  { path:'events/new', component: CreateEventComponent},
+  { path: 'events', component: EventListComponent },
+  { path: 'events/:id', component: EventDetailsComponent,
+   canActivate:[EventRouteActivator] },
+  {path: '404', component:Error404Component},
+]
+
+Registering can Activate Route
+export const appRoutes:Routes = [
+  { path: 'events/:id', component: EventDetailsComponent,
+   canActivate:[EventRouteActivator] },
+]
+
+Defining EventRouter Service for canActive route implementation
+export class EventRouteActivator implements CanActivate{
+
+  constructor (private eventService: EventService, private router:Router){}
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
+     const  eventExist = !! this.eventService.getEvent(+route.params['id']);
+
+     if(!eventExist)
+     this.router.navigate(['/404'])
+
+     return eventExist
+
+  }
 
