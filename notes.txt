@@ -446,3 +446,21 @@ using router link
     <h2>{{event.name}}</h2>
     <div>Date: {{event.date}}</div>
 
+
+adding router link for anchor element
+ <a [routerLink]="['/events']" >All Events</a>
+
+Navigation using code needs injection of service
+Router
+
+Navigation using code
+export class CreateEventComponent{
+
+  constructor (private router: Router){
+
+  }
+  cancel(){
+    this.router.navigate(['/events'])
+  }
+}
+
