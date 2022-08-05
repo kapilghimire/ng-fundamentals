@@ -2,6 +2,7 @@ Branches
   master
   directives
   services
+  Routing 
 
 Bootstraping of angular app
  starts at main.ts file
