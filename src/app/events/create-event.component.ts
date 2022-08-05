@@ -10,12 +10,13 @@ import { Router } from '@angular/router';
     <br>
     <br>
     <button type="submit" class="btn btn-primary">Save</button>
-    <button type="submit" class="btn btn-default" (click)="cancel()")>Cancel</button>
+    <button type="submit" class="btn btn-default" (click)="cancel()">Cancel</button>
   </div>
   `
 })
 export class CreateEventComponent{
 
+  isDirty:boolean = true;
   constructor (private router: Router){
 
   }

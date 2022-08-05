@@ -4,6 +4,7 @@ Branches
   services
   Routing
   routing-can-activate
+  routing-can-deactivate
 
 Bootstraping of angular app
  starts at main.ts file
@@ -496,3 +497,27 @@ export class EventRouteActivator implements CanActivate{
 
   }
 
+
+  passing function as parameter for canActivate and canDeactivate as function parameter
+
+
+   export const appRoutes:Routes = [
+  { path:'events/new', component: CreateEventComponent,
+   canDeactivate:['canDeactivateCreateEvent']},
+
+
+   injecting function as provider for canactivate and canDeactivate routes definition
+   providers: [EventService,ToastrService,EventRouteActivator,
+  {
+    provide:'canDeactivateCreateEvent',
+    useValue: checkDirtyState
+  }
+
+
+  checkDirty state canDeactivate route implementation
+  export function checkDirtyState(component:CreateEventComponent){
+  if(component.isDirty)
+  return window.confirm('You have not saved this event, do you really want to cancel ?');
+
+  return true;
+}
