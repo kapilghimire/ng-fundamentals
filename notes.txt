@@ -8,6 +8,7 @@ Branches
   routing-route-resolver
   route-styling
   feature-module
+  imports-barrel
 
 Bootstraping of angular app
  starts at main.ts file
@@ -610,3 +611,10 @@ Registering in Routes at application Routes :
     loadChildren: () => import('./user/user.module')
        .then(m=>m.UserModule)
   }
+
+
+******** imports-barrel ******
+what is import barrel
+you create index.ts file in folder to export typscript object any file inside the folder,
+ where index.ts is created
+This is done recursively
