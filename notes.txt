@@ -7,6 +7,7 @@ Branches
   routing-can-deactivate
   routing-route-resolver
   route-styling
+  feature-module
 
 Bootstraping of angular app
  starts at main.ts file
@@ -577,3 +578,35 @@ styling routes
           >All Events</a>
         </li>
         <li><a [routerLink]="['/events/new']" routerLinkActive="active">Create Event</a></li>
+
+***********************feature module **************************
+two different import for feature module
+@NgModule({
+  imports:[
+    CommonModule,  // AppModule would have BrowserModule
+    RouterModule.forChild(userRoutes)  // AppModule would have RouterModule.forRoot(routes)
+  ],
+
+
+  Defining app routes for feature module in appRoutes.ts
+  export const appRoutes:Routes = [
+  {
+    path:'user',
+    loadChildren: () => import('./user/user.module')
+       .then(m=>m.UserModule)
+  }
+]
+
+ Defining routes in feature module
+ same as defining at app level
+
+Registration  routes steps for feature module
+Defining seperate routes
+Registration in feature module : RouterModule.forChild(userRoutes)
+Registering in Routes at application Routes :
+ export const appRoutes:Routes = [
+  {
+    path:'user',
+    loadChildren: () => import('./user/user.module')
+       .then(m=>m.UserModule)
+  }
