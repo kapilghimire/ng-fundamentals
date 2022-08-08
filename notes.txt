@@ -9,6 +9,7 @@ Branches
   route-styling
   feature-module
   imports-barrel
+  login-form-implementation
 
 Bootstraping of angular app
  starts at main.ts file
@@ -618,3 +619,10 @@ what is import barrel
 you create index.ts file in folder to export typscript object any file inside the folder,
  where index.ts is created
 This is done recursively
+
+
+***** syn to async**********
+Rxjs changing sync to async
+let subject = new Subject()
+    setTimeout(()=>{subject.next(EVENTS); subject.complete();},200)
+    return subject;
