@@ -11,7 +11,7 @@ Branches
   imports-barrel
   login-form-implementation
   reactive-form
-
+  reactive-form-validator
 Bootstraping of angular app
  starts at main.ts file
  main property of angular.json points to main.ts
@@ -627,3 +627,13 @@ Rxjs changing sync to async
 let subject = new Subject()
     setTimeout(()=>{subject.next(EVENTS); subject.complete();},200)
     return subject;
+
+
+
+  ******* validation ********
+  css aplication to html for invalid input
+  <div class="form-group" [ngClass]="{'error': profileForm.controls['firstName'].invalid &&
+                                                     profileForm.controls['firstName'].touched }">
+        <label for="firstName">First Name:</label>
+        <input formControlName="firstName" id="firstName" type="text" class="form-control" placeholder="First Name..." />
+      </div>
