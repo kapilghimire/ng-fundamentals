@@ -10,6 +10,7 @@ Branches
   feature-module
   imports-barrel
   login-form-implementation
+  reactive-form
 
 Bootstraping of angular app
  starts at main.ts file
