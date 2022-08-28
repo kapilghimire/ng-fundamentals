@@ -16,15 +16,18 @@ import { AuthService } from './auth.service';
 })
 export class ProfileComponent implements OnInit {
   profileForm: FormGroup = new FormGroup({}) ;
+  firstName: FormControl | undefined;
+  lastName: FormControl | undefined;
+
 
   constructor(private authService: AuthService,private router:Router){}
 
   ngOnInit(): void {
-    let firstName =new FormControl(this.authService.currentUser?.firstName,Validators.required);
-    let lastName = new FormControl(this.authService.currentUser?.lastName,Validators.required);
+     this.firstName =new FormControl(this.authService.currentUser?.firstName,Validators.required);
+     this.lastName = new FormControl(this.authService.currentUser?.lastName,Validators.required);
     this.profileForm=  new FormGroup({
-      firstName:firstName,
-      lastName: lastName
+      firstName:this.firstName,
+      lastName: this.lastName
     })
   }
 
@@ -37,5 +40,14 @@ export class ProfileComponent implements OnInit {
      this.authService.updateCurretnUser(formVales.firstName,formVales.lastName)
      this.router.navigate(['events'])
   }
-}
+  }
+   validateFirstName(){
+    return this.firstName?.valid || this.firstName?.untouched;
+   }
+
+   validateLastName(){
+    return this.lastName?.valid || this.lastName?.untouched;
+   }
+
+
 }
