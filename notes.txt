@@ -12,6 +12,8 @@ Branches
   login-form-implementation
   reactive-form
   reactive-form-validator
+  reactive-form-multiple-validator
+
 Bootstraping of angular app
  starts at main.ts file
  main property of angular.json points to main.ts
