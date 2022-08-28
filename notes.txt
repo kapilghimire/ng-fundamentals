@@ -13,6 +13,7 @@ Branches
   reactive-form
   reactive-form-validator
   reactive-form-multiple-validator
+  template-driven-form
 
 Bootstraping of angular app
  starts at main.ts file
@@ -639,3 +640,20 @@ let subject = new Subject()
         <label for="firstName">First Name:</label>
         <input formControlName="firstName" id="firstName" type="text" class="form-control" placeholder="First Name..." />
       </div>
+
+
+nesting model binding for template driven form
+ <div ngModelGroup="location">
+      <div class="form-group">
+        <label for="address">Event Location:</label>
+        <input #address="ngModel" (ngModel)="newEvent.address" name="address" id="address" type="text" class="form-control" placeholder="Address of event..." />
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <input (ngModel)="newEvent.city" name="city" id="city" type="text" class="form-control" placeholder="City..." />
+        </div>
+        <div class="col-md-6" >
+          <input (ngModel)="newEvent.country" name="country" id="country" type="text" class="form-control" placeholder="Country..." />
+        </div>
+      </div>
+
