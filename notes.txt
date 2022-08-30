@@ -14,6 +14,7 @@ Branches
   reactive-form-validator
   reactive-form-multiple-validator
   template-driven-form
+  reactive-form-advance-validator
 
 Bootstraping of angular app
  starts at main.ts file
@@ -657,3 +658,35 @@ nesting model binding for template driven form
         </div>
       </div>
 
+
+simple custom validator-restricted words
+ private restrictWords(control:FormControl):{[key:string]:any} | null{
+      return control.value.includes('foo') ? {'restrictedWord' : 'foo'} :null
+  }
+
+Registering simple custom validator - restricted word
+    this.abstract = new FormControl('', [Validators.required, Validators.maxLength(400), this.restrictWords]);
+
+
+advance validator passing parameter - restricted words
+ private restrictWords(words:any):any { return (control:FormControl):{[key:string]:any} | null =>{
+
+    if(!words) return null
+
+    var invalidWords = words
+       .map((w:any)=> control.value.includes(w) ? w:null)
+       .filter((w:any)=> w!=null)
+
+    return invalidWords && invalidWords.length > 0
+        ? {'restrictedWords' : invalidWords.join(',')}
+        :null
+
+  }
+
+Registering advance validator passinng parameter - restricted words
+ this.abstract = new FormControl('', [Validators.required, Validators.maxLength(400), this.restrictWords(['foo','bar'])]);
+
+
+accessing error message from custom restricted words validator
+
+ <em *ngIf="abstract.invalid && abstract.dirty && abstract.errors?.['restrictedWords']"> Restricted words found : {{ abstract.errors?.['restrictedWords'] }} </em>
