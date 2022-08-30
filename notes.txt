@@ -15,6 +15,7 @@ Branches
   reactive-form-multiple-validator
   template-driven-form
   reactive-form-advance-validator
+  reactive-form-advance-sharable-validator
 
 Bootstraping of angular app
  starts at main.ts file
