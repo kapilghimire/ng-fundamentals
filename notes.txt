@@ -16,6 +16,7 @@ Branches
   template-driven-form
   reactive-form-advance-validator
   reactive-form-advance-sharable-validator
+  compenent-communication-passing-data-into-compenent
 
 Bootstraping of angular app
  starts at main.ts file
