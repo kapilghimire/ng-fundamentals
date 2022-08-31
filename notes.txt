@@ -743,5 +743,9 @@ Good practice for multiple content projection
      <ng-content select="[first-slot]"></ng-content>
      <ng-content select="[second-slot]"></ng-content>
 
+upper case pipe
+<h2>{{event?.name | uppercase}}</h2>
 
+passing parameter to pipe
+<div>Date: {{event?.date | date : 'shortDate'}}</div>
 
