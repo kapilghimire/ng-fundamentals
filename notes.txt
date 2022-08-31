@@ -749,3 +749,22 @@ upper case pipe
 passing parameter to pipe
 <div>Date: {{event?.date | date : 'shortDate'}}</div>
 
+Duration custom pipe
+@Pipe({
+  name:'duration'
+})
+export class DurationPipe implements PipeTransform{
+  transform(value: number):string {
+    switch(value){
+      case 1: return 'Half Hour'
+      case 2: return 'One Hour'
+      case 3: return 'Half Day'
+      case 4: return 'Full Day'
+      default: return value.toString();
+    }
+  }
+
+Custom pipe to be registerd at
+app module under declarations section
+
+
