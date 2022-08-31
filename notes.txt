@@ -697,3 +697,12 @@ accessing error message from custom restricted words validator
  to tell compiler value won't be null
  this.eventService.updateEvent(this.event!)
  parameter inside won't be null
+
+ content projection is done using
+ <ng-content></ng-content>
+
+ collapsable well content projection
+ <div (click)="toggleContent()" class="well pointable">
+      <h4 class="well-title">{{title}}</h4>
+      <ng-content *ngIf="visible"></ng-content>
+</div>
