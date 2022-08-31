@@ -706,3 +706,42 @@ accessing error message from custom restricted words validator
       <h4 class="well-title">{{title}}</h4>
       <ng-content *ngIf="visible"></ng-content>
 </div>
+
+proerty of <ng-content> tag to be use for multiple content projection selector
+<ng-content select="<css-selector>"></ng-content>
+Note css-seclector eg : .class-name, #id-name
+
+example of multiple slot content projection
+<collapsible-well>
+  <div class="first">
+    slot 1 content
+  </div>
+  <div class="second">
+    slot 2 content
+  </div>
+</collapsible-well>
+
+    content projection
+     <ng-content select=".first"></ng-content>
+     <ng-content select=".second"></ng-content>
+
+Good practice for multiple content projection
+ To use attribute selector
+
+ Example of attribute selector for content projection
+
+ <collapsible-well>
+  <div first-slot>
+    slot 1 content
+  </div>
+  <div second-slot>
+    slot 2 content
+  </div>
+</collapsible-well>
+
+    content projection
+     <ng-content select="[first-slot]"></ng-content>
+     <ng-content select="[second-slot]"></ng-content>
+
+
+
