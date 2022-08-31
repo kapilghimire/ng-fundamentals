@@ -692,3 +692,8 @@ Registering advance validator passinng parameter - restricted words
 accessing error message from custom restricted words validator
 
  <em *ngIf="abstract.invalid && abstract.dirty && abstract.errors?.['restrictedWords']"> Restricted words found : {{ abstract.errors?.['restrictedWords'] }} </em>
+
+ use of ! single
+ to tell compiler value won't be null
+ this.eventService.updateEvent(this.event!)
+ parameter inside won't be null

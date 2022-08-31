@@ -10,7 +10,7 @@ export class EventService{
     return subject;
   }
 
-  getEvent(id:number){
+  getEvent(id:number): IEvent | undefined{
     return EVENTS.find(event => event.id === id)
   }
 
@@ -18,6 +18,11 @@ export class EventService{
      event.id=999;
      event.session=[];
      EVENTS.push(event);
+  }
+
+  updateEvent(event:IEvent){
+    let index = EVENTS.findIndex(x=>x.id = event.id);
+    EVENTS[index] = event;
   }
 }
 
