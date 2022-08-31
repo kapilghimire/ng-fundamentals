@@ -18,7 +18,7 @@ Branches
   reactive-form-advance-sharable-validator
   compenent-communication-passing-data-into-compenent
   filtering-data
-
+  sorting-data
 Bootstraping of angular app
  starts at main.ts file
  main property of angular.json points to main.ts
